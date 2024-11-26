@@ -1,2 +1,0 @@
-![](UsingState.png)
-

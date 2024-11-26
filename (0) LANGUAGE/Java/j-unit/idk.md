@@ -1,2 +1,0 @@
-
-- `fail()` / `assertTrue(true)`

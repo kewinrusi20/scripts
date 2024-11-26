@@ -1,2 +1,0 @@
-
-- Konstruktoren werden nicht vererbt

@@ -1,3 +1,0 @@
-```css
-list-style: none;
-```
