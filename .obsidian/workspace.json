@@ -1,0 +1,191 @@
+{
+  "main": {
+    "id": "d645e3828f1945f5",
+    "type": "split",
+    "children": [
+      {
+        "id": "4635bcaf1dc0ea2f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "861eb414d3ee8ce2",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f354387658e7cb59",
+    "type": "split",
+    "children": [
+      {
+        "id": "f6a7f7db33f86077",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1d6fe8bf31925d34",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9db432d27ffcef17",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c3a09ee65e452a1b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a17757b3362cd555",
+    "type": "split",
+    "children": [
+      {
+        "id": "55bb05ac6fed1832",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30f63e54b9ca785a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "b10cd58a7126df44",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "2eee0d245850970d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "faf8d870dbcf17e1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "webpage-html-export:Export Vault to HTML": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "861eb414d3ee8ce2",
+  "lastOpenFiles": [
+    "README.md",
+    "(0) LANGUAGE/Java/ui/TextUi.md",
+    "(0) LANGUAGE/Java/ui/JFrame.md",
+    "(0) LANGUAGE/Java/ui/Commands.md",
+    "(0) LANGUAGE/Java/patterns/Singolton.md",
+    "(0) LANGUAGE/Java/j-unit/Order.md",
+    "(0) LANGUAGE/Java/j-unit/idk.md",
+    "(0) LANGUAGE/Java/j-unit/Equals (1).md",
+    "(0) LANGUAGE/Java/j-unit/Base.md",
+    "(0) LANGUAGE/Java/j-unit/Assert.md",
+    "(0) LANGUAGE/Java/j-unit/2 Classes.md",
+    "(0) LANGUAGE/Java/generics/Wildcards.md",
+    "(0) LANGUAGE/Java/generics/Extends vs Super.md",
+    "(0) LANGUAGE/Java/exceptions/Z - Quiz.md",
+    "(0) LANGUAGE/Java/exceptions/Try with resources (2).md",
+    "(0) LANGUAGE/Java/exceptions/Try with resources (1).md",
+    "(0) LANGUAGE/Java/exceptions/Try & Catch.md",
+    "(0) LANGUAGE/Java/exceptions/JUnit.md",
+    "(0) LANGUAGE/Java/exceptions/handle or declare.md",
+    "(0) LANGUAGE/Java/exceptions/ForcedThrow.md",
+    "(0) LANGUAGE/Java/exceptions/Examples.md",
+    "(0) LANGUAGE/Java/exceptions/Custom Exceptions.md",
+    "(0) LANGUAGE/Java/exceptions/0 - More.md",
+    "(0) LANGUAGE/Java/exceptions/0 - Methods.md",
+    "(0) LANGUAGE/Java/exceptions/0 - List Hierarchy.md",
+    "(0) LANGUAGE/Java/exceptions/0 - List.md",
+    "readme.html",
+    "docs.png",
+    "attachments/IMG_20241125_145949.jpg",
+    "attachments/Notes 2024-11-13.jpg"
+  ]
+}

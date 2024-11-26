@@ -1,0 +1,6 @@
+man sway
+man sway-bar
+man swaymsg
+man sway-input
+man sway-output
+man 7 xkeyboard-config

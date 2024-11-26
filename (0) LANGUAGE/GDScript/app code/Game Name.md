@@ -1,0 +1,1 @@
+- Go to: Project Settings > General > Application > Config

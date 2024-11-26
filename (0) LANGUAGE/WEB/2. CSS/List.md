@@ -1,0 +1,3 @@
+```css
+list-style: none;
+```

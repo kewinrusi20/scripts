@@ -1,0 +1,2 @@
+> Type: Tiling Windows Manager
+

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array - Method Examples.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+	min-width: 1400px;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #00A0F0; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+	font-weight: bold;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="length">Length</h1>
+<ul>
+<li><em>array</em><code>.length</code></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>];
+System.out.println(nums.length);  <span class="hljs-comment">// --&gt; 10</span>
+</div></code></pre>
+<h1 id="compare">Compare</h1>
+<ul>
+<li><em>array 1</em><code>==</code><em>array 2</em>: to compare <strong>references</strong> (the address)</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] a = { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> };
+<span class="hljs-keyword">int</span>[] b = { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> };
+System.out.println(a == b);  <span class="hljs-comment">// -&gt; false</span>
+</div></code></pre>
+<ul>
+<li><em>array 1</em><code>.equals(</code><em>array 2</em><code>)</code>: a <strong>custom compare methods</strong> inherited from the class &quot;Objects&quot;</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] a = { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> };
+<span class="hljs-keyword">int</span>[] b = { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> };
+System.out.println(a.equals(b));  <span class="hljs-comment">// -&gt; false</span>
+</div></code></pre>
+<ul>
+<li><code>Arrays.equals(</code><em>array 1</em>, <em>array 2</em><code>)</code>: compare element <strong>one by one</strong> inside 2 arrays</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] a = { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> };
+<span class="hljs-keyword">int</span>[] b = { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> };
+System.out.println(Arrays.equals(a, b));  <span class="hljs-comment">// -&gt; true</span>
+</div></code></pre>
+<p>(<strong>!</strong>) Only this one compare che content</p>
+<ul>
+<li>for <strong>partial compare</strong>:
+<code>Arrays.equals(</code><em>array 1</em>, <em>start index</em>, <em>num elements</em>, <em>array 2</em>, *start index, <em>num elements</em> <code>)</code>
+<ul>
+<li><em>array 1</em></li>
+<li><em>start index</em></li>
+<li><em>num elements</em></li>
+<li><em>array 2</em></li>
+<li><em>start index</em></li>
+<li><em>num elements</em></li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] i1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>};
+<span class="hljs-keyword">int</span>[] i2 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>};
+
+Arrays.equals(i1, i2):              <span class="hljs-comment">// --&gt; false</span>
+Arrays.equals(i1, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, i2, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>);  <span class="hljs-comment">// --&gt; true</span>
+</div></code></pre>
+<ul>
+<li><code>Arrays.deepEquals(</code><em>nested array 1</em>, <em>nested array 2</em><code>)</code> for <strong>Nested Arrays</strong></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[][] i1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">3</span>][<span class="hljs-number">3</span>];
+<span class="hljs-keyword">int</span>[][] i2 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">3</span>][<span class="hljs-number">3</span>];
+
+Arrays.deepEquals(i1, i2);
+</div></code></pre>
+<ul>
+<li><code>Arrays.compare(</code><em>array 1</em>, <em>array 2</em><code>)</code>: to <strong>compare inside elements</strong></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] i1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>};
+<span class="hljs-keyword">int</span>[] i2 = {<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">50</span>};
+
+Arrays.compare(i1, i2);      <span class="hljs-comment">// -1</span>
+Arrays.compare(i1, i1Copy);  <span class="hljs-comment">// 0</span>
+Arrays.compare(i2, i1)       <span class="hljs-comment">// 1</span>
+</div></code></pre>
+<ul>
+<li>
+<p><code>-1</code> if first is <em>smaller</em></p>
+</li>
+<li>
+<p><code>0</code> if both a <em>equal</em></p>
+</li>
+<li>
+<p><code>1</code> if first is <em>bigger</em></p>
+</li>
+<li>
+<p><code>compareTo()</code></p>
+</li>
+</ul>
+<pre class="hljs"><code><div>String s;
+String[] as;
+
+<span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) {
+	<span class="hljs-keyword">if</span> (s.comprareTo(as[mittel] == <span class="hljs-number">0</span>)) {
+		<span class="hljs-keyword">return</span> mitte;
+	} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (s.comprareTo(as[mittel] &lt; <span class="hljs-number">0</span>)) {
+		mitte = (mitte - <span class="hljs-number">0</span>) / <span class="hljs-number">2</span>;
+	} <span class="hljs-keyword">else</span> {
+		mitte = mitte + (as.length - <span class="hljs-number">1</span> - mitte) / <span class="hljs-number">2</span>;
+	}
+}
+</div></code></pre>
+<p>Example 2</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">Person</span>&gt; </span>{
+    String name;
+    <span class="hljs-keyword">int</span> age;
+	
+    Person(String name, <span class="hljs-keyword">int</span> age) {
+        <span class="hljs-keyword">this</span>.name = name;
+        <span class="hljs-keyword">this</span>.age = age;
+    }
+	
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareTo</span><span class="hljs-params">(Person other)</span> </span>{
+	    <span class="hljs-comment">// Compare by age</span>
+        <span class="hljs-keyword">return</span> Integer.compare(<span class="hljs-keyword">this</span>.age, other.age);
+    }
+	
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name + <span class="hljs-string">" ("</span> + age + <span class="hljs-string">")"</span>;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Person[] people = {
+            <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Alice"</span>, <span class="hljs-number">30</span>),
+            <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Bob"</span>, <span class="hljs-number">25</span>),
+            <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Charlie"</span>, <span class="hljs-number">35</span>)
+        };
+		
+        <span class="hljs-comment">// Sort the array by age (using Comparable)</span>
+        Arrays.sort(people);
+		
+        <span class="hljs-comment">// Print the sorted array</span>
+        System.out.println(Arrays.toString(people));
+        <span class="hljs-comment">// Output: [Bob (25), Alice (30), Charlie (35)]</span>
+    }
+}
+</div></code></pre>
+<h1 id="copy">Copy</h1>
+<ul>
+<li><code>System.arraycopy(</code><em>old array</em>, <em>start index</em>, <em>new array</em>, <em>start index</em>, <em>num of elements to copy</em><code>)</code>
+<ul>
+<li><em>old array</em></li>
+<li><em>start index</em></li>
+<li><em>new array</em></li>
+<li><em>start index</em></li>
+<li><em>num of elements to copy</em></li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment">// Original array to be copied  </span>
+<span class="hljs-keyword">int</span>[] originalArray = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};  
+  
+<span class="hljs-comment">// Create a new array of the same length as the original  </span>
+<span class="hljs-keyword">int</span>[] copiedArray = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[originalArray.length + <span class="hljs-number">3</span>];
+
+System.arraycopy(originalArray, <span class="hljs-number">0</span>, copiedArray, <span class="hljs-number">0</span>, originalArray.length);
+<span class="hljs-comment">// src      source array  </span>
+<span class="hljs-comment">// srcPos   starting position in the source array  </span>
+<span class="hljs-comment">// dest     destination array  </span>
+<span class="hljs-comment">// destPos  starting position in the destination array  </span>
+<span class="hljs-comment">// length   number of elements to copy  </span>
+</div></code></pre>
+<ul>
+<li><code>Arrays.copyOf(</code><em>array</em>, <em>length</em><code>)</code>: partial copy Arrays
+<ul>
+<li><em>array</em>: original array</li>
+<li><em>length</em>: length of the new array</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] array = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>];
+<span class="hljs-keyword">int</span>[] newArray = Array.copyOf(array,array + <span class="hljs-number">2</span>);
+</div></code></pre>
+<h1 id="sort">Sort</h1>
+<ul>
+<li><code>Arrays.sort(</code><em>array</em><code>)</code></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] array = {<span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">5</span>};
+Arrays.sort(array);
+<span class="hljs-comment">// --&gt; [1, 2, 5, 5, 9]</span>
+</div></code></pre>
+<p>In case of <strong>Strings</strong>, it will sort in alphabetical order.</p>
+<ul>
+<li>Sort in <strong>descending order</strong> for <strong>Objects</strong></li>
+</ul>
+<pre class="hljs"><code><div>Integer[] numbers = {<span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">5</span>};
+Arrays.sort(numbers, Collections.reverseOrder());
+<span class="hljs-comment">// --&gt; [9, 5, 5, 2, 1]</span>
+</div></code></pre>
+<p>It works only for Objects (Wrapper Classes)</p>
+<ul>
+<li>Sort a <strong>custom range</strong></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] numbers = {<span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">5</span>};
+<span class="hljs-comment">// Sort from index 1 to &lt;4 (3)</span>
+Arrays.sort(numbers, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>);
+<span class="hljs-comment">// --&gt; [5, 1, 2, 9, 5]</span>
+</div></code></pre>
+<ul>
+<li><strong>Sorting Custom Objects</strong> (example sorting custom objects by age):</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">Person</span>&gt; </span>{
+    String name;
+    <span class="hljs-keyword">int</span> age;
+	
+    Person(String name, <span class="hljs-keyword">int</span> age) {
+        <span class="hljs-keyword">this</span>.name = name;
+        <span class="hljs-keyword">this</span>.age = age;
+    }
+	
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareTo</span><span class="hljs-params">(Person other)</span> </span>{
+	    <span class="hljs-comment">// Compare by age</span>
+        <span class="hljs-keyword">return</span> Integer.compare(<span class="hljs-keyword">this</span>.age, other.age);
+    }
+	
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name + <span class="hljs-string">" ("</span> + age + <span class="hljs-string">")"</span>;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Person[] people = {
+            <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Alice"</span>, <span class="hljs-number">30</span>),
+            <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Bob"</span>, <span class="hljs-number">25</span>),
+            <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Charlie"</span>, <span class="hljs-number">35</span>)
+        };
+		
+        <span class="hljs-comment">// Sort the array by age (using Comparable)</span>
+        Arrays.sort(people);
+		
+        <span class="hljs-comment">// Print the sorted array</span>
+        System.out.println(Arrays.toString(people));  
+        <span class="hljs-comment">// Output: [Bob (25), Alice (30), Charlie (35)]</span>
+    }
+}
+</div></code></pre>
+<p>If you want to sort an array of custom objects (like a class <code>Person</code>), you need to implement the <code>Comparable</code> interface or use a custom <code>Comparator</code>.</p>
+<h1 id="search">Search</h1>
+<ul>
+<li><code>Arrays.binarySearch(</code><em>arrays</em>, <em>target</em><code>)</code> to search a number inside an int sorted array</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] array = {<span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">5</span>};  
+Arrays.sort(array);  <span class="hljs-comment">// --&gt; [1, 2, 5, 5, 9]</span>
+  
+Arrays.binarySearch(array, <span class="hljs-number">5</span>);  <span class="hljs-comment">// --&gt; Index of: 2  </span>
+
+<span class="hljs-comment">// For value that are not present in the array</span>
+<span class="hljs-comment">// the result will always be a guess,</span>
+<span class="hljs-comment">// where that value would be placed</span>
+<span class="hljs-comment">// but in negative value, and the index starts with 1 (not 0)</span>
+Arrays.binarySearch(array, -<span class="hljs-number">5</span>));  <span class="hljs-comment">// --&gt; -1</span>
+Arrays.binarySearch(array, <span class="hljs-number">0</span>));  <span class="hljs-comment">// --&gt; -1</span>
+Arrays.binarySearch(array, <span class="hljs-number">3</span>));  <span class="hljs-comment">// --&gt; -3</span>
+Arrays.binarySearch(array, <span class="hljs-number">6</span>));  <span class="hljs-comment">// --&gt; -5</span>
+Arrays.binarySearch(array, <span class="hljs-number">8</span>));  <span class="hljs-comment">// --&gt; -5</span>
+Arrays.binarySearch(array, <span class="hljs-number">20</span>));  <span class="hljs-comment">// --&gt; -6</span>
+</div></code></pre>
+<ul>
+<li>(<strong>!</strong>) It only works with sorted arrays (otherwise it give strange numbers)</li>
+</ul>
+<h1 id="print">Print</h1>
+<ul>
+<li><code>Arrays.toString(</code><em>b</em><code>)</code></li>
+<li><em>b</em><code>.toString()</code></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] b = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">5</span>];  
+System.out.println(Arrays.toString(b));
+System.out.println(b.toString());
+</div></code></pre>
+<p>Result</p>
+<pre class="hljs"><code><div>[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+[I@<span class="hljs-number">15</span>aeb7ab
+</div></code></pre>
+<h1 id="fill">Fill</h1>
+<ul>
+<li><code>Arrays.fill(</code><em>array</em>, <em>value</em><code>)</code>: Füllen eines Array mit Daten
+<ul>
+<li><em>array</em></li>
+<li><em>value</em></li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span>[] array = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">5</span>];
+
+Arrays.fill(array, <span class="hljs-number">5</span>);
+<span class="hljs-comment">// 5 is the value</span>
+<span class="hljs-comment">// --&gt; [5, 5, 5, 5, 5]</span>
+
+Arrays.fill(array, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);
+<span class="hljs-comment">// fill from index 1 to index &lt;4 (3)</span>
+<span class="hljs-comment">// --&gt; [0, 5, 5, 5, 0]</span>
+
+</div></code></pre>
+<h1 id="more">More</h1>
+<p><code>T[]</code> stands for the array</p>
+<ul>
+<li><code>deepHashCode(T[])</code></li>
+<li><code>deepToString(T[])</code></li>
+<li><code>hashCode(T[])</code></li>
+<li><code>mismatch(T[], T[])</code></li>
+<li><code>parallelPrefix(</code>
+<code>T[] array, int fromIndex, int toIndex, BinaryOperator&lt;T&gt; o)</code></li>
+<li><code>parallelSort(T[])</code></li>
+<li><code>setAll(T[], UnaryOperator)</code></li>
+</ul>
+
+</body>
+</html>

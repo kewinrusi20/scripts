@@ -1,0 +1,5 @@
+colors
+black: syntax
+blue: input
+red: mark important part
+green: nothing

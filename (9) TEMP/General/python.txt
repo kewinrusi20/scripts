@@ -1,0 +1,6 @@
+Data type
+Number
+String
+List
+Tuples
+Dictionaries

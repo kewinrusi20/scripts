@@ -1,0 +1,106 @@
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+
+class TicTacToeTest {
+	char[][] gameBoard = new char[3][3];
+	static TicTacToe testGame = new TicTacToe();
+
+	@Test
+	public void testWonHorizontal1() {
+		TicTacToe testGame = new TicTacToe();
+		testGame.gameBoard[0][0] = 'X';
+		testGame.gameBoard[0][1] = 'X';
+		testGame.gameBoard[0][2] = 'X';
+		boolean playerWon = testGame.isWon(0, 2);
+		Assert.assertEquals("Testing if  player X won with Horizontal", playerWon, true);
+	}
+
+	public void testWonHorizontal2() {
+		TicTacToe testGame = new TicTacToe();
+		testGame.gameBoard[0][0] = 'X';
+		testGame.gameBoard[0][1] = 'X';
+		testGame.gameBoard[0][2] = 'O';
+		boolean playerWon = testGame.isWon(1, 1);
+		Assert.assertEquals("Testing if  player X won with Horizontal", playerWon, false);
+	}
+
+	@Test
+	public void testWonVertical1() {
+		TicTacToe testGame = new TicTacToe();
+		testGame.gameBoard[0][0] = 'X';
+		testGame.gameBoard[1][0] = 'X';
+		testGame.gameBoard[2][0] = 'X';
+		boolean playerWon = testGame.isWon(2, 0);
+		Assert.assertEquals("Testing if  player X won with Horizontal", playerWon, true);
+	}
+
+	@Test
+	public void testWonVertical2() {
+		TicTacToe testGame = new TicTacToe();
+		testGame.gameBoard[0][0] = 'X';
+		testGame.gameBoard[1][0] = 'X';
+		testGame.gameBoard[2][0] = 'O';
+
+		boolean playerWon = testGame.isWon(2, 0);
+		Assert.assertEquals("Testing if player X won with Horizontal", playerWon, false);
+	}
+
+	@Test
+	public void testWonDiagonal1() {
+		TicTacToe testGame = new TicTacToe();
+		testGame.gameBoard[0][0] = 'X';
+		testGame.gameBoard[1][1] = 'X';
+		testGame.gameBoard[2][2] = 'X';
+		boolean playerWon = testGame.isWon(2, 2);
+		Assert.assertEquals("Testing if  player X won with Diagonal from Left to right", playerWon, true);
+	}
+
+	@Test
+	public void testWonDiagonal2() {
+		TicTacToe testGame = new TicTacToe();
+		testGame.gameBoard[0][2] = 'X';
+		testGame.gameBoard[1][1] = 'X';
+		testGame.gameBoard[2][0] = 'X';
+		boolean playerWon = testGame.isWon(2, 0);
+		Assert.assertEquals("Testing if  player X won with Diagonal from Right to Left", playerWon, true);
+	}
+
+	@Test
+	public void testIfValidMove1() {
+		TicTacToe testGame = new TicTacToe();
+		boolean isMoveValid = testGame.isValidMove(2, 5);
+		Assert.assertEquals("Testing if Move is Valid", isMoveValid, false);
+	}
+
+	@Test
+	public void testIfValidMove2() {
+		TicTacToe testGame = new TicTacToe();
+		testGame.gameBoard[2][2] = 'X';
+
+		boolean isMoveValid = testGame.isValidMove(2, 2);
+		Assert.assertEquals("Testing if Move is Valid", isMoveValid, false);
+	}
+
+	@Test
+	public void testIfValidMove3() {
+		TicTacToe testGame = new TicTacToe();
+		boolean isMoveValid = testGame.isValidMove(-2, 1);
+		Assert.assertEquals("Testing if Move is Valid", isMoveValid, false);
+	}
+
+	@Test
+	public void testIfValidMove4() {
+		TicTacToe testGame = new TicTacToe();
+		boolean isMoveValid = testGame.isValidMove(1, 1);
+		Assert.assertEquals("Testing if Move is Valid", isMoveValid, true);
+	}
+
+	@Test
+	public void testIfValidMove5() {
+		TicTacToe testGame = new TicTacToe();
+		testGame.gameBoard[0][2] = 'X';
+		boolean isMoveValid = testGame.isValidMove(1, 2);
+		Assert.assertEquals("Testing if Move is Valid - Test should return true", isMoveValid, true);
+	}
+
+}

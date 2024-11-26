@@ -1,0 +1,71 @@
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+
+class TicTacToeBotTest {
+
+  @Test
+  public void testPlayer1CanWin1() {
+    TicTacToeBot testGameWithBot = new TicTacToeBot();
+    testGameWithBot.gameBoard[0][2] = 'X';
+    testGameWithBot.gameBoard[0][0] = 'X';
+    testGameWithBot.gameBoard[2][0] = 'X';
+    int[] move = testGameWithBot.getBotMove();
+
+    Assert.assertEquals(true, isO1(move));
+  }
+
+  @Test
+  public void testPlayer1CanWin2() {
+    TicTacToeBot testGameWithBot = new TicTacToeBot();
+    testGameWithBot.gameBoard[0][2] = 'X';
+    testGameWithBot.gameBoard[2][2] = 'X';
+    testGameWithBot.gameBoard[2][0] = 'X';
+    int[] move = testGameWithBot.getBotMove();
+    Assert.assertEquals(true, isO2(move));
+  }
+
+  private boolean isO1(int[] move) {
+    if (move[0] == 0 && move[1] == 1) {
+      return true;
+    } else if (move[0] == 1 && move[1] == 0) {
+      return true;
+    } else if (move[0] == 1 && move[1] == 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private boolean isO2(int[] move) {
+    if (move[0] == 1 && move[1] == 2) {
+      return true;
+    } else if (move[0] == 1 && move[1] == 1) {
+      return true;
+    } else if (move[0] == 2 && move[1] == 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  @Test
+  public void botCanWin() {
+    TicTacToeBot testGameWithBot = new TicTacToeBot();
+    testGameWithBot.gameBoard[0][2] = 'X';
+    testGameWithBot.gameBoard[1][1] = 'X';
+    int[] move = testGameWithBot.getBotMove();
+    Assert.assertEquals(2, move[0]);
+    Assert.assertEquals(0, move[1]);
+  }
+
+  @Test
+  public void botCanWin2() {
+    TicTacToeBot testGameWithBot = new TicTacToeBot();
+    testGameWithBot.gameBoard[0][0] = 'X';
+    testGameWithBot.gameBoard[1][0] = 'X';
+
+    int[] move = testGameWithBot.getBotMove();
+    Assert.assertEquals(2, move[0]);
+    Assert.assertEquals(0, move[1]);
+  }
+}

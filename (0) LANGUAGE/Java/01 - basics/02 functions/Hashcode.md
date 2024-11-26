@@ -1,0 +1,5 @@
+
+# Propriety
+- Method from Objects
+
+
