@@ -1,5 +1,6 @@
 Kewin's Documentation
-github.com/kewinrusi20/scripts
+
+https://github.com/kewinrusi20/scripts.git
 
 **(!) WARNING (!)**
 This documentation was created only for personal use, and was never meant to be published.

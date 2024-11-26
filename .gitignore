@@ -1,9 +1,10 @@
 # Obsidian
 Rubbish/
+.obsidian/
 
 # Meganz
-.megaignore
+.megaignore/
 
 # Google Drive
-.tmp.driveupload
-.tmp.drivedownload
+.tmp.driveupload/
+.tmp.drivedownload/
